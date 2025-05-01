@@ -7,13 +7,13 @@
     --background-color: #F5F7FA;
     --card-background: #FFFFFF;
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
     --light-bg: #f4f7f9;
     --white-bg: #ffffff;
     --light-text-color: #f1f1f1;
     --grey-text-color: #7f8c8d; /* Gris medio */
-    --border-color: #ecf0f1; /* Gris claro */
-    --disclaimer-bg: #fffbe6;
+    --border-color: #e1e8ed;
+    --disclaimer-bg: rgba(0, 91, 170, 0.05);
     --disclaimer-border: #ffe58f;
     --disclaimer-text: #d48806;
     --zero-copay-color: #27ae60; /* Verde */
@@ -30,13 +30,20 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* --- Header --- */
 header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 2rem 0;
+    color: white;
+    padding: 2rem 1rem; /* Ajuste padding */
+    text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header::before {
@@ -51,206 +58,108 @@ header::before {
 }
 
 .header-content {
+    max-width: 1100px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
 .logo-container {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Menos margen */
 }
 
 .logo {
-    max-height: 60px;
-    filter: brightness(0) invert(1);
+    max-height: 50px; /* Ajuste tamaño */
+    filter: brightness(0) invert(1); /* Logo blanco */
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem; /* Ajuste tamaño */
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem; /* Ajuste tamaño */
+    margin-bottom: 1rem;
     opacity: 0.9;
 }
 
 .author-info {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    padding: 1.5rem;
+    padding: 1rem 1.5rem; /* Ajuste padding */
     border-radius: var(--border-radius);
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Menos margen */
+    display: inline-block;
 }
 
 .author-info p {
-    margin: 0.3rem 0;
-    font-size: 1.1rem;
+    margin: 0.2rem 0;
+    font-size: 0.95rem; /* Ajuste tamaño */
 }
 
-main {
-    max-width: 1200px;
+/* --- Main Container --- */
+main#presentation-container {
+    flex-grow: 1;
+    position: relative; /* Necesario para posicionar slides absolute */
+    overflow: hidden; /* Ocultar slides inactivas */
+    width: 90%;
+    max-width: 1100px;
     margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-.section {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+    background-color: var(--card-background);
     box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
+    border-radius: var(--border-radius);
+    display: flex; /* Asegura que los slides hijos puedan usar 100% height */
+    min-height: 60vh; /* Altura mínima para ver contenido */
 }
 
-.section:hover {
-    transform: translateY(-5px);
-}
-
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 1.5rem;
-}
-
-li {
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-li:before {
-    content: "•";
-    color: var(--secondary-color);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-.code-example {
-    background: #f8f9fa;
-    border-left: 4px solid var(--secondary-color);
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
-.code-example pre {
-    margin: 0;
-    white-space: pre-wrap;
-}
-
-.note {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
-footer {
-    background: var(--secondary-color);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-}
-
-footer a {
-    color: white;
-    text-decoration: underline;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
-
-footer a:hover {
-    opacity: 1;
-}
-
-footer p {
-    margin: 0.5rem 0;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .section {
-        padding: 1.5rem;
-    }
-    
-    main {
-        padding: 0 1rem;
-    }
-}
-
-/* Estilos de Diapositivas */
+/* --- Slides --- */
 .slide {
-    /* Position absolute/opacity gestionado por JS */
-    width: 100%; 
-    min-height: 100%; /* Asegurar que ocupa el contenedor */
-    padding: 2.5rem 3.5rem; /* Más padding */
-    box-sizing: border-box;
-    overflow-y: auto; 
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
+    position: absolute; /* Posicionar slides una sobre otra */
     top: 0;
     left: 0;
-    transition: opacity 0.4s ease-in-out;
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin: 1rem;
-}
-
-.slide:hover {
-    transform: translateY(-2px);
+    width: 100%;
+    height: 100%; /* Ocupar todo el alto del contenedor */
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permitir scroll si el contenido excede */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    background-color: var(--card-background); /* Fondo por defecto */
 }
 
 .slide.active {
     opacity: 1;
     visibility: visible;
-    z-index: 1;
+    z-index: 10; /* Asegurar que la activa está sobre otras */
 }
 
 .slide h2 {
     color: var(--primary-color);
-    border-bottom: 3px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color); /* Línea más delgada */
     padding-bottom: 0.7rem;
-    margin-bottom: 2rem; /* Más espacio */
-    font-size: 1.6rem;
-    display: flex; /* Para alinear icono */
+    margin-bottom: 1.8rem;
+    font-size: 1.5rem; /* Ajuste tamaño */
+    display: flex;
     align-items: center;
 }
 
 .slide h2 i {
-    margin-right: 0.8rem; /* Espacio icono-título */
+    margin-right: 0.8rem;
     color: var(--primary-color);
 }
 
 .slide-content {
-    font-size: 1.05rem; /* Ligeramente más grande */
+    font-size: 1rem; /* Tamaño base */
 }
 
 .slide-content h3 {
     color: var(--secondary-color);
-    margin-top: 1.8rem;
+    margin-top: 1.6rem;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
 }
@@ -260,19 +169,20 @@ footer p {
 }
 
 .slide-content ul {
-    list-style: none; /* Quitar bullets por defecto */
+    list-style: none;
     padding-left: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .slide-content ul li {
-    margin-bottom: 0.6rem; /* Espacio entre items */
+    margin-bottom: 0.6rem;
     position: relative;
-    padding-left: 25px; /* Espacio para icono */
+    padding-left: 25px;
 }
 
-.slide-content ul li i.fa-check-circle, 
-.slide-content ul li i.fa-code, 
+/* Iconos lista */
+.slide-content ul li i.fa-check-circle,
+.slide-content ul li i.fa-code,
 .slide-content ul li i.fa-bullseye,
 .slide-content ul li i.fa-stethoscope,
 .slide-content ul li i.fa-balance-scale,
@@ -288,8 +198,8 @@ footer p {
 .slide-content ul li i.fa-forward {
     position: absolute;
     left: 0;
-    top: 4px; /* Ajustar alineación vertical */
-    color: var(--primary-color); /* Icono azul */
+    top: 4px;
+    color: var(--primary-color);
     font-size: 0.9em;
 }
 
@@ -298,55 +208,57 @@ footer p {
     padding: 0.2em 0.5em;
     border-radius: 4px;
     font-family: monospace;
-    font-size: 0.95em;
+    font-size: 0.9em; /* Más pequeño */
     border: 1px solid #dce4e7;
+    word-break: break-all; /* Evitar overflow */
 }
 
 .disclaimer {
-    background: rgba(0, 91, 170, 0.05);
+    background: var(--disclaimer-bg);
     border-left: 4px solid var(--primary-color);
-    padding: 1.5rem;
-    margin: 2rem 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.8rem 0;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 .disclaimer h4 {
-    color: var(--disclaimer-text);
+    color: var(--primary-color); /* Usar color primario */
     margin: 0 0 0.5rem 0;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .disclaimer h4 i {
     margin-right: 0.6rem;
 }
 
-/* Layouts específicos */
-.grid-layout, .grid-layout-condensed {
+/* --- Layouts Específicos --- */
+.grid-layout, .grid-layout-condensed, .comparison-grid, .resource-list, .cases, .future-trends, .conclusions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem; /* Gap consistente */
     margin-top: 1.5rem;
-}
-.grid-layout-condensed {
-     gap: 1.5rem; /* Menos gap para condensado */
-}
-
-.comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
 }
 
 .comparison-card, .resource-card, .case-card, .trend-card {
-    background-color: var(--white-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
+    background-color: var(--background-color); /* Fondo más suave */
+    padding: 1.2rem;
+    border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.comparison-card h3 {
-    margin-top: 0; /* Reset margin */
+.comparison-card h3, .resource-card h3, .case-card h4, .trend-card h3, .conclusions h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.case-card h4 {
+    display: flex;
+    align-items: center;
+}
+.case-card h4 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
 }
 
 .highlight-zero {
@@ -355,40 +267,12 @@ footer p {
 }
 
 .code-list li {
-    padding-left: 0; /* Reset padding for simple lists */
+    padding-left: 0;
     font-size: 0.95rem;
 }
 
-.resource-list {
-     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-     gap: 1.5rem;
-}
-
-.cases {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-.case-card h4 {
-    margin-top: 0;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-}
-.case-card h4 i {
-    margin-right: 0.5rem;
-}
-
-.future-trends {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-.trend-card h3 {
-    margin-top: 0;
-    font-size: 1.15rem;
-}
-
 .conclusions ul li {
-    padding-left: 28px; /* Más espacio para icono */
+    padding-left: 28px;
 }
 .conclusions ul li i {
     color: var(--primary-color);
@@ -398,40 +282,50 @@ footer p {
 }
 
 .footnote {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--grey-text-color);
     margin-top: 1.5rem;
     text-align: center;
 }
 
-/* Navegación */
+/* --- Navegación --- */
 .slide-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2rem;
-    background-color: var(--border-color);
-    border-top: 1px solid #dce4e7;
-    width: 100%;
-    max-width: 1100px; 
-    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color); /* Fondo azul oscuro */
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 2rem auto; /* Debajo del contenedor main */
     box-sizing: border-box;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius); /* Redondear esquinas inferiores */
+    position: relative; /* Para asegurar visibilidad */
+    z-index: 20; /* Sobre las slides */
+    margin-top: -0.5rem; /* Ligeramente superponer con main */
 }
 
 .slide-navigation button {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* Tamaño botones */
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex; /* Alinear icono */
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slide-navigation button i {
+    font-size: 0.9em;
 }
 
 .slide-navigation button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
+    opacity: 0.9;
 }
 
 .slide-navigation button:active {
@@ -441,22 +335,23 @@ footer p {
 .slide-navigation button:disabled {
     background-color: var(--grey-text-color);
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 #slide-counter {
-    font-weight: bold;
-    color: var(--secondary-color);
-    font-size: 1.1rem;
+    font-weight: 600; /* Más grueso */
+    color: white; /* Texto blanco */
+    font-size: 1rem;
 }
 
-/* Tabla Anexo */
+/* --- Tabla Anexo --- */
 .table-container {
-    max-height: 500px; /* Más altura */
-    overflow-y: auto; 
+    max-height: 450px; /* Ajuste altura */
+    overflow-y: auto;
     margin-top: 1.5rem;
-    border: 1px solid #dce4e7;
-    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
 #orl-code-table {
@@ -464,69 +359,105 @@ footer p {
     border-collapse: collapse;
 }
 
-#orl-code-table th, 
+#orl-code-table th,
 #orl-code-table td {
-    border: 1px solid #e1e8ed;
-    padding: 0.8rem 1rem; /* Más padding */
+    border: 1px solid var(--border-color);
+    padding: 0.7rem 1rem;
     text-align: left;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     vertical-align: top;
 }
 
 #orl-code-table th {
     background-color: var(--primary-color);
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     position: sticky;
     top: 0;
-    z-index: 2; /* Asegurar que esté sobre el contenido */
+    z-index: 2;
 }
 
 #orl-code-table tbody tr:nth-child(even) {
-    background-color: #f8fafc;
+    background-color: var(--background-color); /* Alternar color */
 }
 
 #orl-code-table tbody tr:hover {
-    background-color: rgba(0, 91, 170, 0.05);
+    background-color: var(--disclaimer-bg);
 }
 
-/* Responsive Adjustments (Opcional, básico) */
+/* --- Footer --- */
+footer {
+    background: var(--secondary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto; /* Empujar al final */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reducir tamaño base en móvil */
+    }
+    header {
+        padding: 1.5rem 1rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .logo {
+        max-height: 40px;
+    }
     main#presentation-container {
         width: 100%;
         margin: 1rem 0;
         border-radius: 0;
+        min-height: 70vh; /* Más altura en móvil */
     }
     .slide {
-        margin: 0.5rem;
-        padding: 1rem;
+        padding: 1.5rem 1.8rem; /* Menos padding */
     }
     .slide h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .slide-content {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
-    .grid-layout, .comparison-grid, .resource-list, .cases, .future-trends, .grid-layout-condensed {
+    .grid-layout, .comparison-grid, .resource-list, .cases, .future-trends, .grid-layout-condensed, .conclusions {
         grid-template-columns: 1fr; /* Stack en móvil */
         gap: 1rem;
     }
     .slide-navigation {
-        padding: 0.5rem 1rem;
+        width: 100%;
+        padding: 0.6rem 1rem;
         border-radius: 0;
+        margin-top: 0; /* Sin superposición */
+        margin-bottom: 0; /* Pegado abajo */
     }
     .slide-navigation button {
-        padding: 0.5rem 0.8rem;
-        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
     #slide-counter {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
-    .header-content {
+    footer {
         padding: 1rem;
-    }
-    
-    .logo {
-        max-height: 40px;
     }
 } 
