@@ -1,0 +1,498 @@
+/* Estilos Generales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --light-bg: #f4f7f9;
+    --white-bg: #ffffff;
+    --light-text-color: #f1f1f1;
+    --grey-text-color: #7f8c8d; /* Gris medio */
+    --border-color: #ecf0f1; /* Gris claro */
+    --disclaimer-bg: #fffbe6;
+    --disclaimer-border: #ffe58f;
+    --disclaimer-text: #d48806;
+    --zero-copay-color: #27ae60; /* Verde */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo-container {
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    max-height: 80px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.author-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    display: inline-block;
+}
+
+.author-info p {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.section {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+li:before {
+    content: "•";
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.code-example {
+    background: #f8f9fa;
+    border-left: 4px solid var(--secondary-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.code-example pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+    }
+}
+
+/* Estilos de Diapositivas */
+.slide {
+    /* Position absolute/opacity gestionado por JS */
+    width: 100%; 
+    min-height: 100%; /* Asegurar que ocupa el contenedor */
+    padding: 2.5rem 3.5rem; /* Más padding */
+    box-sizing: border-box;
+    overflow-y: auto; 
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.slide h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 0.7rem;
+    margin-bottom: 2rem; /* Más espacio */
+    font-size: 1.6rem;
+    display: flex; /* Para alinear icono */
+    align-items: center;
+}
+
+.slide h2 i {
+    margin-right: 0.8rem; /* Espacio icono-título */
+    color: var(--primary-color);
+}
+
+.slide-content {
+    font-size: 1.05rem; /* Ligeramente más grande */
+}
+
+.slide-content h3 {
+    color: var(--secondary-color);
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+.slide-content h3 i {
+    margin-right: 0.6rem;
+    color: var(--primary-color);
+}
+
+.slide-content ul {
+    list-style: none; /* Quitar bullets por defecto */
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.slide-content ul li {
+    margin-bottom: 0.6rem; /* Espacio entre items */
+    position: relative;
+    padding-left: 25px; /* Espacio para icono */
+}
+
+.slide-content ul li i.fa-check-circle, 
+.slide-content ul li i.fa-code, 
+.slide-content ul li i.fa-bullseye,
+.slide-content ul li i.fa-stethoscope,
+.slide-content ul li i.fa-balance-scale,
+.slide-content ul li i.fa-key,
+.slide-content ul li i.fa-sitemap,
+.slide-content ul li i.fa-book,
+.slide-content ul li i.fa-file-alt,
+.slide-content ul li i.fa-file-invoice-dollar,
+.slide-content ul li i.fa-chart-line,
+.slide-content ul li i.fa-download,
+.slide-content ul li i.fa-globe-americas,
+.slide-content ul li i.fa-network-wired,
+.slide-content ul li i.fa-forward {
+    position: absolute;
+    left: 0;
+    top: 4px; /* Ajustar alineación vertical */
+    color: var(--primary-color); /* Icono azul */
+    font-size: 0.9em;
+}
+
+.slide-content code {
+    background-color: var(--border-color);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.95em;
+    border: 1px solid #dce4e7;
+}
+
+.disclaimer {
+    background-color: var(--disclaimer-bg);
+    border-left: 5px solid var(--disclaimer-border); /* Borde lateral */
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 2rem;
+    color: var(--disclaimer-text);
+}
+
+.disclaimer h4 {
+    color: var(--disclaimer-text);
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.disclaimer h4 i {
+    margin-right: 0.6rem;
+}
+
+/* Layouts específicos */
+.grid-layout, .grid-layout-condensed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+.grid-layout-condensed {
+     gap: 1.5rem; /* Menos gap para condensado */
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.comparison-card, .resource-card, .case-card, .trend-card {
+    background-color: var(--white-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.comparison-card h3 {
+    margin-top: 0; /* Reset margin */
+}
+
+.highlight-zero {
+    font-weight: bold;
+    color: var(--zero-copay-color);
+}
+
+.code-list li {
+    padding-left: 0; /* Reset padding for simple lists */
+    font-size: 0.95rem;
+}
+
+.resource-list {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 1.5rem;
+}
+
+.cases {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.case-card h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+.case-card h4 i {
+    margin-right: 0.5rem;
+}
+
+.future-trends {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.trend-card h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.conclusions ul li {
+    padding-left: 28px; /* Más espacio para icono */
+}
+.conclusions ul li i {
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+.footnote {
+    font-size: 0.9rem;
+    color: var(--grey-text-color);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+/* Navegación */
+.slide-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: var(--border-color);
+    border-top: 1px solid #dce4e7;
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.slide-navigation button {
+    background-color: var(--primary-color);
+    color: var(--white-bg);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.slide-navigation button:hover {
+    background-color: var(--secondary-color);
+}
+
+.slide-navigation button:active {
+    transform: scale(0.95);
+}
+
+.slide-navigation button:disabled {
+    background-color: var(--grey-text-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#slide-counter {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Tabla Anexo */
+.table-container {
+    max-height: 500px; /* Más altura */
+    overflow-y: auto; 
+    margin-top: 1.5rem;
+    border: 1px solid #dce4e7;
+    border-radius: 6px;
+}
+
+#orl-code-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#orl-code-table th, 
+#orl-code-table td {
+    border: 1px solid #e1e8ed;
+    padding: 0.8rem 1rem; /* Más padding */
+    text-align: left;
+    font-size: 0.95rem;
+    vertical-align: top;
+}
+
+#orl-code-table th {
+    background-color: #f0f4f7;
+    color: var(--secondary-color);
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Asegurar que esté sobre el contenido */
+}
+
+#orl-code-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+#orl-code-table tbody tr:hover {
+    background-color: #eef3f7;
+}
+
+/* Responsive Adjustments (Opcional, básico) */
+@media (max-width: 768px) {
+    main#presentation-container {
+        width: 100%;
+        margin: 1rem 0;
+        border-radius: 0;
+    }
+    .slide {
+        padding: 1.5rem 2rem;
+    }
+    .slide h2 {
+        font-size: 1.4rem;
+    }
+    .slide-content {
+        font-size: 1rem;
+    }
+    .grid-layout, .comparison-grid, .resource-list, .cases, .future-trends, .grid-layout-condensed {
+        grid-template-columns: 1fr; /* Stack en móvil */
+        gap: 1rem;
+    }
+    .slide-navigation {
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+    }
+    .slide-navigation button {
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+    }
+    #slide-counter {
+        font-size: 1rem;
+    }
+} 

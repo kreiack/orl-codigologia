@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: Codigología en ORL (Chile) - Clínica INDISA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images/indisa-logo.png" alt="Clínica INDISA Logo" class="logo">
+            </div>
+            <h1>Codigología en Otorrinolaringología</h1>
+            <p class="subtitle">Contexto Normativo y Práctico en Chile (Fonasa 2025)</p>
+            <div class="author-info">
+                <p>Dr. Ignacio Cortés</p>
+                <p>Especialista en Otorrinolaringología</p>
+                <p>Clínica INDISA</p>
+            </div>
+        </div>
+    </header>
+
+    <main id="presentation-container">
+        <section id="slide-1" class="slide active">
+            <h2><i class="fas fa-book-open"></i> 1. Introducción y Alcance</h2>
+            <div class="slide-content">
+                <h3>Conceptos Fundamentales</h3>
+                <ul>
+                    <li><i class="fas fa-code"></i> <strong>Codigología:</strong> Aplicación sistemática de clasificaciones (CIE-10, Aranceles) para estandarizar registros.</li>
+                    <li><i class="fas fa-bullseye"></i> <strong>Objetivos:</strong> Mejorar calidad de datos, gestión clínica/administrativa, facturación, análisis epidemiológico.</li>
+                    <li><i class="fas fa-stethoscope"></i> <strong>Alcance ORL:</strong> Patologías y procedimientos de oído, nariz, faringe, laringe, cabeza y cuello.</li>
+                    <li><i class="fas fa-balance-scale"></i> <strong>Importancia:</strong> Continuidad asistencial, investigación, gestión de calidad, sostenibilidad financiera.</li>
+                </ul>
+                <div class="disclaimer">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Disclaimer Importante</h4>
+                    <p>Esta presentación ofrece <strong>orientaciones generales</strong>. La codificación final es <strong>responsabilidad médica individual</strong>, basada en el acto clínico y la normativa vigente. Uso referencial.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-2" class="slide">
+            <h2><i class="fas fa-gavel"></i> 2. Marco Normativo y Sistemas</h2>
+            <div class="slide-content grid-layout">
+                <div>
+                    <h3>Diagnóstico: CIE-10 OPS</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Estándar oficial MINSAL (DEIS). Ed. 2018.</li>
+                        <li><i class="fas fa-sitemap"></i> Estructura por capítulos (ORL en VIII, X, II, etc.).</li>
+                        <li><i class="fas fa-key"></i> <strong>Reglas Clave:</strong> Cruz (†) Etiología (Primario) / Daga (*) Manifestación (Secundario).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Procedimientos: Fonasa 2025</h3>
+                    <ul>
+                        <li><i class="fas fa-file-invoice-dollar"></i> <strong>Arancel MLE:</strong> Res. Exenta Nº 173/2025.</li>
+                        <li><i class="fas fa-chart-line"></i> Inflactor único: <strong>4.2%</strong>.</li>
+                        <li><i class="fas fa-book"></i> <strong>Nomenclador MAI:</strong> Códigos específicos red pública.</li>
+                        <li><i class="fas fa-file-alt"></i> <strong>Normas Téc. Adm. (NTA):</strong> Reglas operativas.</li>
+                        <li><i class="fas fa-download"></i> Recursos: Libro Arancel MLE (PDF/Excel), Nomenclador MAI.</li>
+                    </ul>
+                </div>
+                <div>
+                     <h3>Otros Sistemas Relevantes</h3>
+                     <ul>
+                        <li><i class="fas fa-globe-americas"></i> ICD-10-CM (EEUU), CPT (Procedimientos EEUU).</li>
+                        <li><i class="fas fa-network-wired"></i> SNOMED CT (Terminología detallada, interoperabilidad).</li>
+                        <li><i class="fas fa-forward"></i> CIE-11 (Futura implementación global y en Chile).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide-3" class="slide">
+            <h2><i class="fas fa-hospital-alt"></i><i class="fas fa-clinic-medical"></i> 3. Modalidades Fonasa: MAI vs. MLE</h2>
+            <div class="slide-content comparison-grid">
+                <div class="comparison-card">
+                    <h3><i class="fas fa-hospital"></i> MAI (Atención Institucional)</h3>
+                    <ul>
+                        <li><strong>Red:</strong> Pública exclusiva (Hospitales, CRS...).</li>
+                        <li><strong>Financiamiento:</strong> Fonasa directo al prestador.</li>
+                        <li><strong>Copago:</strong> <span class="highlight-zero">Cero</span> (Todos los tramos).</li>
+                        <li><strong>Codificación:</strong> Nomenclador propio. A veces más detallado o único (Ej: Implantes complejos). Base para futuros MLE.</li>
+                        <li><strong>Ejemplos Clave (Ver Anexo):</strong> <code>1302077-7</code> (Impl. Oído Medio), <code>1302080-6</code> (Plastía Tubaria Endo.).</li>
+                    </ul>
+                </div>
+                 <div class="comparison-card">
+                    <h3><i class="fas fa-user-md"></i> MLE (Libre Elección)</h3>
+                     <ul>
+                        <li><strong>Red:</strong> Privada en convenio (Clínicas, Consultas...).</li>
+                        <li><strong>Beneficiarios:</strong> Tramos B, C, D.</li>
+                        <li><strong>Financiamiento:</strong> Bonificación Fonasa + Copago afiliado (Bono).</li>
+                        <li><strong>Niveles Prestador (1, 2, 3):</strong> Definen valor arancel, bonif. y copago. Base Isapres.</li>
+                        <li><strong>Código MLE (<code>XX YY ZZZ - G</code>):</strong> Grupo / Subgrupo / Específico - Guarismo (Complejidad/Pabellón).</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footnote">Nota: La brecha de códigos y valorización entre MAI y MLE es un desafío actual.</p>
+        </section>
+
+        <section id="slide-4" class="slide">
+            <h2><i class="fas fa-ambulance"></i> 4. Codificación Urgencia (MLE)</h2>
+             <div class="slide-content">
+                 <h3>Principios y Anestesia Local</h3>
+                 <ul>
+                     <li>Anestesia Local (si no incluida): Usar <code>22-01-001</code> (~$61.5k), requiere justificación y programa.</li>
+                 </ul>
+                <h3><i class="fas fa-band-aid"></i> Heridas / <i class="fas fa-bacteria"></i> Abscesos (Alternativas Estratégicas)</h3>
+                <p>Códigos Plástica/Derma suelen valorizarse mejor (¡Justificar clínicamente!)</p>
+                 <ul class="code-list">
+                     <li>Plástica: <code>1502001-4</code> (Cara complicada >5cm ~$196k), <code>1502001-2</code> (Cara simple <5cm ~$61k).</li>
+                     <li>Derma: <code>1602221-3</code> (Herida compl. >5cm ~$128k), <code>1602225-2</code> (Vaciamiento absceso NE ~$90k).</li>
+                     <li><strong>Aplicación Ejemplo:</strong> Otohematoma (<code>1302001-0</code> ¡Guarismo 0!) -> Usar <code>1602225-2</code> o <code>1502001-2</code> si aplica.</li>
+                 </ul>
+                 <div class="grid-layout-condensed">
+                    <div>
+                        <h3><i class="fas fa-ear-listen"></i> Oído</h3>
+                         <ul class="code-list"> 
+                             <li>CE/Cerumen: <code>1301042</code> (Adulto ~$7k), <code>1301043</code> (Niño ~$21k).</li>
+                             <li>Curación Micro: <code>1301040</code> (~$7k).</li>
+                             <li>CE CAE (Pab?): <code>1302002-3</code> (~$73k).</li>
+                         </ul>
+                    </div>
+                    <div>
+                         <h3><i class="fas fa-lungs"></i> Nariz</h3>
+                         <ul class="code-list">
+                            <li>Epistaxis: Tap. Ant. (~$7k), Tap. Post. (~$22k).</li>
+                            <li>Fractura Nasal (+Anest.): <code>1302046</code> (~$50k). Alt: <code>1402054</code> (Maxilo ~$133k, si aplica).</li>
+                             <li>Absceso/Hematoma Tabique: <code>1302038</code> (~$54k).</li>
+                         </ul>
+                    </div>
+                    <div>
+                        <h3><i class="fas fa-mouth-open"></i> Cav. Oral / Faringe</h3>
+                         <ul class="code-list">
+                             <li>Abscesos (+Anest.): <code>1302025</code> (Periamig. ~$61k), <code>1302026</code> (Retrofar. ~$61k), <code>1302023</code> (Piso boca ~$34k).</li>
+                         </ul>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="slide-5" class="slide">
+             <h2><i class="fas fa-procedures"></i> 5. Codificación Pabellón (MLE)</h2>
+            <div class="slide-content">
+                <h3><i class="fas fa-video"></i> Principio Endoscopía (Fonasa)</h3>
+                 <p>"Ausencia de código endoscópico: usar convencional + 2 dígitos en guarismo". (Norma histórica, verificar vigencia y aplicar con cautela).</p>
+                 
+                 <div class="grid-layout-condensed">
+                     <div>
+                        <h3><i class="fas fa-lungs"></i> Nariz y CPN</h3>
+                        <ul class="code-list"> 
+                             <li>Fractura Nasoseptal Compleja: <code>1402054</code> (Maxilo ~$133k).</li>
+                             <li>Sinequias: <code>1502014</code> (Plastia Z ~$191k).</li>
+                             <li>Colgajos Endonasales: <code>1502021</code> (Simple ~$174k).</li>
+                             <li>Reoperaciones (CEF): Considerar <code>1402037</code> (Maxilect. Parcial).</li>
+                             <li>Rinoplastia (Ej. Indisa): Combinación Funcional (<code>1302052</code>+<code>1302042</code>+<code>1502012</code>) + Estético/PPC (<code>5302000</code>+<code>C1/C2</code>+<code>1350052</code>). *Verificar*.</li>
+                         </ul>
+                    </div>
+                     <div>
+                         <h3><i class="fas fa-ear-listen"></i> Oído</h3>
+                         <ul class="code-list">
+                             <li>Dilatación Tubaria: <code>1301041</code> (¡Guarismo 0!).</li>
+                             <li>Otitis Media c/Efus. (Tubos): <code>1302008</code>.</li>
+                             <li>Timpanoplastias: <code>1302065</code> (Miringo), <code>1302068</code> (Tipos I-V).</li>
+                             <li>Mastoidectomías: <code>1302014</code> (Simple), <code>1302015</code> (Radical).</li>
+                             <li>Implantes: <code>1302076</code> (Coclear), <code>1302077</code> (Oído Medio Activo - MAI).</li>
+                         </ul>
+                    </div>
+                    <div>
+                        <h3><i class="fas fa-voicemail"></i> Cav. Oral / Faringe / Laringe</h3>
+                         <ul class="code-list">
+                             <li>Biopsia Mucosa Benigna: <code>1602202</code> (<3 lesiones).</li>
+                             <li>Cambio Cánula TQT: ¿<code>1301007</code> (Directa ~$29k) o <code>1301013</code> (Fibro ~$74k)?</li>
+                             <li>Laringoinyecciones: Sin código MLE claro. Ver MAI (<code>1302088-6</code> Tiroplastia).</li>
+                         </ul>
+                    </div>
+                    <div>
+                        <h3><i class="fas fa-user-tie"></i> Cuello / Misceláneo</h3>
+                         <ul class="code-list">
+                            <li>Abscesos Cuello: Ver Urgencia o <code>1402019</code> (Submand.).</li>
+                            <li>Quistes/Fístulas Congénitas/T.Benignos: <code>1402024</code>.</li>
+                         </ul>
+                    </div>
+                 </div>
+             </div>
+        </section>
+
+        <section id="slide-6" class="slide">
+            <h2><i class="fas fa-check-double"></i> 6. Buenas Prácticas y Estrategias</h2>
+             <div class="slide-content grid-layout">
+                 <div>
+                    <h3><i class="fas fa-file-medical-alt"></i> Diagnóstico Principal (CIE-10)</h3>
+                    <ul>
+                        <li>Adherencia estricta Cruz (†) / Daga (*).</li>
+                        <li>Máxima especificidad posible.</li>
+                        <li>Codificar condiciones coexistentes relevantes.</li>
+                    </ul>
+                 </div>
+                 <div>
+                     <h3><i class="fas fa-tasks"></i> Procedimientos (Fonasa)</h3>
+                     <ul>
+                        <li>Correlación Diagnóstico-Procedimiento.</li>
+                        <li>Usar código específico MLE/MAI correcto.</li>
+                        <li><strong>Documentación Clínica Sólida:</strong> Justificar código, complejidad, lateralidad, tecnología, implantes -> Respalda Guarismo.</li>
+                        <li>Verificar reglas de combinación/empaquetamiento.</li>
+                     </ul>
+                 </div>
+                 <div>
+                     <h3><i class="fas fa-lightbulb"></i> "Creatividad Responsable"</h3>
+                     <ul>
+                        <li>Usar códigos alternativos (Plástica, Derma...) <strong>SÓLO si describen mejor</strong> el procedimiento y con <strong>justificación clara</strong>.</li>
+                        <li>Riesgos: Rechazos, auditorías, sanciones.</li>
+                        <li>Ética: No "inflar" facturación sin correlato.</li>
+                    </ul>
+                 </div>
+                 <div>
+                     <h3><i class="fas fa-clipboard-check"></i> Auditoría y Calidad</h3>
+                     <ul>
+                        <li>Monitorizar rechazos.</li>
+                        <li>Revisiones internas periódicas.</li>
+                        <li>Feedback y Capacitación continua.</li>
+                        <li>Mantenerse actualizado (Aranceles/Normas).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-7" class="slide">
+            <h2><i class="fas fa-tools"></i> 7. Herramientas y Recursos</h2>
+            <div class="slide-content resource-list">
+                 <div class="resource-card">
+                     <h3><i class="fas fa-flag"></i> Oficiales (Chile)</h3>
+                     <ul>
+                         <li><strong>Portal Fonasa:</strong> Aranceles MLE/MAI (PDF/Excel), Resoluciones, NTA.</li>
+                         <li><strong>Repositorio DEIS:</strong> CIE-10 OPS (Vols 1, 2, 3).</li>
+                     </ul>
+                 </div>
+                 <div class="resource-card">
+                     <h3><i class="fas fa-building"></i> Institucionales (Ej. Clínica)</h3>
+                     <ul>
+                         <li>Portal Interno: Valores HMQ por convenio.</li>
+                         <li>Protocolos/Guías internas de codificación.</li>
+                         <li>FCE con ayudas integradas.</li>
+                     </ul>
+                 </div>
+                 <div class="resource-card">
+                     <h3><i class="fas fa-globe"></i> Internacionales / Software</h3>
+                     <ul>
+                         <li>OMS/OPS (CIE-10/11).</li>
+                         <li>SNOMED International Browser.</li>
+                         <li>Guías Sociedades Científicas.</li>
+                         <li>Software CAC (Codif. Asistida).</li>
+                     </ul>
+                 </div>
+             </div>
+        </section>
+        
+        <section id="slide-8" class="slide">
+             <h2><i class="fas fa-vial"></i> 8. Casos Prácticos (Simplificados)</h2>
+            <div class="slide-content cases">
+                 <div class="case-card">
+                     <h4><i class="fas fa-user-nurse"></i> Caso 1: Consulta ORL</h4>
+                     <p><strong>Dx:</strong> H90.3 (Hipoacusia NS Uni) / <strong>Proc MLE:</strong> <code>0108206</code>.</p>
+                 </div>
+                 <div class="case-card">
+                     <h4><i class="fas fa-first-aid"></i> Caso 2: Epistaxis Urgencia</h4>
+                     <p><strong>Dx:</strong> R04.0 (Epistaxis) / <strong>Proc MLE:</strong> Tap. Anterior (~$7k) + <code>22-01-001</code>? O Alternativa (<code>1502001-4</code>)?</p>
+                 </div>
+                 <div class="case-card">
+                     <h4><i class="fas fa-bed"></i> Caso 3: Septo + Turbi Pabellón</h4>
+                    <p><strong>Dx:</strong> J34.2 + J34.3 / <strong>Proc MLE:</strong> <code>1302052</code> + <code>1302042</code> (+ Guarismo + Anes.).</p>
+                 </div>
+                 <div class="case-card">
+                     <h4><i class="fas fa-child"></i> Caso 4: Amigdalectomía Niño (MAI)</h4>
+                     <p><strong>Dx:</strong> J35.0 / <strong>Proc MAI:</strong> Buscar código específico en Nomenclador MAI.</p>
+                 </div>
+            </div>
+            <p class="footnote">Nota: La codificación real depende del detalle clínico completo y la normativa vigente.</p>
+        </section>
+        
+        <section id="slide-9" class="slide">
+            <h2><i class="fas fa-chart-area"></i> 9. Desafíos y Tendencias Futuras</h2>
+             <div class="slide-content future-trends">
+                 <div class="trend-card">
+                     <h3><i class="fas fa-sync-alt"></i> Actualización / Brecha MAI-MLE</h3>
+                     <p>Seguimiento anual riguroso. Abogar por incorporar/actualizar códigos MLE.</p>
+                 </div>
+                 <div class="trend-card">
+                     <h3><i class="fas fa-code-branch"></i> Transición a CIE-11</h3>
+                     <p>Adaptación de sistemas, capacitación. Mayor granularidad y enfoque digital.</p>
+                 </div>
+                 <div class="trend-card">
+                     <h3><i class="fas fa-laptop-medical"></i> Interoperabilidad / Salud Digital</h3>
+                     <p>Estándares (SNOMED, CIE), FCE integradas, codificación en Telemedicina.</p>
+                 </div>
+                 <div class="trend-card">
+                     <h3><i class="fas fa-brain"></i> Inteligencia Artificial (IA)</h3>
+                     <p>Potencial en CAC, detección errores, auditoría. Apoyo al profesional.</p>
+                 </div>
+             </div>
+        </section>
+        
+        <section id="slide-10" class="slide">
+            <h2><i class="fas fa-bullhorn"></i> 10. Conclusiones y Recomendaciones</h2>
+             <div class="slide-content conclusions grid-layout">
+                 <div>
+                     <h3><i class="fas fa-lightbulb"></i> Puntos Clave</h3>
+                     <ul>
+                        <li>Codificación: Herramienta esencial (Clínica/Gestión/Finanzas).</li>
+                        <li>Dominar normativa chilena (CIE-10, Fonasa) es crucial.</li>
+                        <li>Brecha MAI/MLE impacta práctica.</li>
+                        <li>Precisión exige conocimiento y documentación sólida.</li>
+                        <li>Futuro: Actualización, digitalización, IA.</li>
+                    </ul>
+                 </div>
+                 <div>
+                     <h3><i class="fas fa-user-check"></i> Recomendaciones Prácticas</h3>
+                     <ul>
+                        <li>Fomentar "Codificación Consciente" individual.</li>
+                        <li>Mejorar calidad de registros clínicos.</li>
+                        <li>Establecer protocolos internos claros.</li>
+                        <li>Promover formación continua.</li>
+                        <li>Facilitar acceso rápido a información (Aranceles, HMQ).</li>
+                    </ul>
+                 </div>
+                 <div>
+                     <h3><i class="fas fa-sitemap"></i> Recomendaciones Estratégicas</h3>
+                     <ul>
+                        <li>Participación gremial activa (propuestas Fonasa/MINSAL).</li>
+                        <li>Preparación proactiva para CIE-11.</li>
+                        <li>Impulsar adopción de Salud Digital interoperable.</li>
+                        <li>Usar auditoría como herramienta de mejora continua.</li>
+                    </ul>
+                 </div>
+             </div>
+        </section>
+        
+        <section id="slide-11" class="slide">
+             <h2><i class="fas fa-list-ol"></i> 11. Anexo: Códigos ORL Relevantes</h2>
+             <div class="slide-content">
+                <p>Lista de códigos MAI y MLE frecuentemente mencionados o relevantes para ORL, extraídos de la información disponible (Valores MLE Nivel 3 aprox. 2025). <strong>Verificar siempre arancel oficial.</strong></p>
+                <div class="table-container">
+                    <table id="orl-code-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descripción</th>
+                                <th>Modalidad</th>
+                                <th>Área/Tipo</th>
+                                <th>Valor (Ref.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Contenido generado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <nav class="slide-navigation">
+        <button id="prev-slide" title="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <span id="slide-counter">1 / 11</span>
+        <button id="next-slide" title="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </nav>
+
+    <footer>
+        <p>&copy; 2024 - Pablo Antonio Jordán González</p>
+        <p>Referencias Principales: <a href="https://nuevo.fonasa.gob.cl" target="_blank">Fonasa</a>, <a href="https://repositoriodeis.minsal.cl" target="_blank">DEIS</a></p>
+    </footer>
+
+    <script src="js/orl_data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
