@@ -7,22 +7,22 @@
     --background-color: #F5F7FA;
     --card-background: #FFFFFF;
     --border-radius: 8px;
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-    --light-bg: #f4f7f9;
-    --white-bg: #ffffff;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --light-text-color: #f1f1f1;
-    --grey-text-color: #7f8c8d; /* Gris medio */
+    --grey-text-color: #7f8c8d;
     --border-color: #e1e8ed;
     --disclaimer-bg: rgba(0, 91, 170, 0.05);
-    --disclaimer-border: #ffe58f;
-    --disclaimer-text: #d48806;
-    --zero-copay-color: #27ae60; /* Verde */
+    --zero-copay-color: #27ae60;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Opcional: para scroll suave si hay links internos */
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 2rem 1rem; /* Ajuste padding */
+    padding: 2rem 1rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -65,22 +65,22 @@ header::before {
 }
 
 .logo-container {
-    margin-bottom: 1.5rem; /* Menos margen */
+    margin-bottom: 1.5rem;
 }
 
 .logo {
-    max-height: 50px; /* Ajuste tamaño */
-    filter: brightness(0) invert(1); /* Logo blanco */
+    max-height: 50px;
+    filter: brightness(0) invert(1);
 }
 
 h1 {
-    font-size: 2.2rem; /* Ajuste tamaño */
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .subtitle {
-    font-size: 1.1rem; /* Ajuste tamaño */
+    font-size: 1.1rem;
     margin-bottom: 1rem;
     opacity: 0.9;
 }
@@ -88,265 +88,123 @@ h1 {
 .author-info {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    padding: 1rem 1.5rem; /* Ajuste padding */
+    padding: 1rem 1.5rem;
     border-radius: var(--border-radius);
-    margin-top: 1.5rem; /* Menos margen */
+    margin-top: 1.5rem;
     display: inline-block;
 }
 
 .author-info p {
     margin: 0.2rem 0;
-    font-size: 0.95rem; /* Ajuste tamaño */
+    font-size: 0.95rem;
 }
 
 /* --- Main Container --- */
-main#presentation-container {
-    flex-grow: 1;
-    position: relative; /* Necesario para posicionar slides absolute */
-    overflow: hidden; /* Ocultar slides inactivas */
+/* Contenedor principal que envuelve las slides y la navegación */
+.presentation-wrapper {
     width: 90%;
     max-width: 1100px;
     margin: 2rem auto;
+    display: flex;
+    flex-direction: column; /* Alinear main y nav verticalmente */
+}
+
+main#presentation-container {
+    /* Ya no necesita ser flex o tener altura fija */
+    /* Se adaptará al contenido del slide activo */
+    width: 100%;
     background-color: var(--card-background);
     box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
-    display: flex; /* Asegura que los slides hijos puedan usar 100% height */
-    min-height: 60vh; /* Altura mínima para ver contenido */
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Redondear esquinas superiores */
+    overflow: hidden; /* Para contener bordes redondeados */
+    position: relative; /* Para contexto de z-index si es necesario */
 }
 
 /* --- Slides --- */
 .slide {
-    position: absolute; /* Posicionar slides una sobre otra */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Ocupar todo el alto del contenedor */
+    /* Quitar posicionamiento absoluto */
+    /* display: none por defecto, JS maneja la visibilidad */
+    display: none;
     padding: 2rem 3rem;
     box-sizing: border-box;
-    overflow-y: auto; /* Permitir scroll si el contenido excede */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-    background-color: var(--card-background); /* Fondo por defecto */
+    width: 100%;
+    /* height: auto; es el comportamiento por defecto */
+    opacity: 0; /* Para transición fade */
+    transition: opacity 0.4s ease-in-out;
+    background-color: var(--card-background);
+    min-height: 400px; /* Altura mínima para slides cortas */
 }
 
 .slide.active {
+    display: block; /* Mostrar slide activa */
     opacity: 1;
-    visibility: visible;
-    z-index: 10; /* Asegurar que la activa está sobre otras */
+    z-index: 10;
 }
 
 .slide h2 {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--border-color); /* Línea más delgada */
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.7rem;
     margin-bottom: 1.8rem;
-    font-size: 1.5rem; /* Ajuste tamaño */
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
 }
+.slide h2 i { margin-right: 0.8rem; color: var(--primary-color); }
+.slide-content { font-size: 1rem; }
+.slide-content h3 { color: var(--secondary-color); margin-top: 1.6rem; margin-bottom: 1rem; font-size: 1.2rem; display: flex; align-items: center; }
+.slide-content h3 i { margin-right: 0.6rem; color: var(--primary-color); }
+.slide-content ul { list-style: none; padding-left: 0; margin-bottom: 1.2rem; }
+.slide-content ul li { margin-bottom: 0.6rem; position: relative; padding-left: 25px; }
+.slide-content ul li i.fa-check-circle, /* ... otros iconos ... */ .slide-content ul li i.fa-forward { position: absolute; left: 0; top: 4px; color: var(--primary-color); font-size: 0.9em; }
+.slide-content code { background-color: var(--border-color); padding: 0.2em 0.5em; border-radius: 4px; font-family: monospace; font-size: 0.9em; border: 1px solid #dce4e7; word-break: break-all; }
+.disclaimer { background: var(--disclaimer-bg); border-left: 4px solid var(--primary-color); padding: 1.2rem 1.5rem; margin: 1.8rem 0; border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+.disclaimer h4 { color: var(--primary-color); margin: 0 0 0.5rem 0; font-weight: 600; }
+.disclaimer h4 i { margin-right: 0.6rem; }
 
-.slide h2 i {
-    margin-right: 0.8rem;
-    color: var(--primary-color);
-}
-
-.slide-content {
-    font-size: 1rem; /* Tamaño base */
-}
-
-.slide-content h3 {
-    color: var(--secondary-color);
-    margin-top: 1.6rem;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-}
-.slide-content h3 i {
-    margin-right: 0.6rem;
-    color: var(--primary-color);
-}
-
-.slide-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.2rem;
-}
-
-.slide-content ul li {
-    margin-bottom: 0.6rem;
-    position: relative;
-    padding-left: 25px;
-}
-
-/* Iconos lista */
-.slide-content ul li i.fa-check-circle,
-.slide-content ul li i.fa-code,
-.slide-content ul li i.fa-bullseye,
-.slide-content ul li i.fa-stethoscope,
-.slide-content ul li i.fa-balance-scale,
-.slide-content ul li i.fa-key,
-.slide-content ul li i.fa-sitemap,
-.slide-content ul li i.fa-book,
-.slide-content ul li i.fa-file-alt,
-.slide-content ul li i.fa-file-invoice-dollar,
-.slide-content ul li i.fa-chart-line,
-.slide-content ul li i.fa-download,
-.slide-content ul li i.fa-globe-americas,
-.slide-content ul li i.fa-network-wired,
-.slide-content ul li i.fa-forward {
-    position: absolute;
-    left: 0;
-    top: 4px;
-    color: var(--primary-color);
-    font-size: 0.9em;
-}
-
-.slide-content code {
-    background-color: var(--border-color);
-    padding: 0.2em 0.5em;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 0.9em; /* Más pequeño */
-    border: 1px solid #dce4e7;
-    word-break: break-all; /* Evitar overflow */
-}
-
-.disclaimer {
-    background: var(--disclaimer-bg);
-    border-left: 4px solid var(--primary-color);
-    padding: 1.2rem 1.5rem;
-    margin: 1.8rem 0;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
-.disclaimer h4 {
-    color: var(--primary-color); /* Usar color primario */
-    margin: 0 0 0.5rem 0;
-    font-weight: 600;
-}
-
-.disclaimer h4 i {
-    margin-right: 0.6rem;
-}
-
-/* --- Layouts Específicos --- */
+/* --- Layouts Específicos (Grid) --- */
 .grid-layout, .grid-layout-condensed, .comparison-grid, .resource-list, .cases, .future-trends, .conclusions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem; /* Gap consistente */
+    gap: 1.5rem;
     margin-top: 1.5rem;
 }
-
-.comparison-card, .resource-card, .case-card, .trend-card {
-    background-color: var(--background-color); /* Fondo más suave */
-    padding: 1.2rem;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-}
-
-.comparison-card h3, .resource-card h3, .case-card h4, .trend-card h3, .conclusions h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: var(--secondary-color);
-}
-
-.case-card h4 {
-    display: flex;
-    align-items: center;
-}
-.case-card h4 i {
-    margin-right: 0.5rem;
-    color: var(--primary-color);
-}
-
-.highlight-zero {
-    font-weight: bold;
-    color: var(--zero-copay-color);
-}
-
-.code-list li {
-    padding-left: 0;
-    font-size: 0.95rem;
-}
-
-.conclusions ul li {
-    padding-left: 28px;
-}
-.conclusions ul li i {
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    top: 4px;
-}
-
-.footnote {
-    font-size: 0.85rem;
-    color: var(--grey-text-color);
-    margin-top: 1.5rem;
-    text-align: center;
-}
+.comparison-card, .resource-card, .case-card, .trend-card { background-color: var(--background-color); padding: 1.2rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
+.comparison-card h3, .resource-card h3, .case-card h4, .trend-card h3, .conclusions h3 { margin-top: 0; font-size: 1.1rem; color: var(--secondary-color); }
+.case-card h4 { display: flex; align-items: center; }
+.case-card h4 i { margin-right: 0.5rem; color: var(--primary-color); }
+.highlight-zero { font-weight: bold; color: var(--zero-copay-color); }
+.code-list li { padding-left: 0; font-size: 0.95rem; }
+.conclusions ul li { padding-left: 28px; }
+.conclusions ul li i { color: var(--primary-color); position: absolute; left: 0; top: 4px; }
+.footnote { font-size: 0.85rem; color: var(--grey-text-color); margin-top: 1.5rem; text-align: center; }
 
 /* --- Navegación --- */
+/* Mover nav fuera de main, dentro del wrapper */
 .slide-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 1.5rem;
-    background-color: var(--secondary-color); /* Fondo azul oscuro */
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto 2rem auto; /* Debajo del contenedor main */
+    background-color: var(--secondary-color);
+    width: 100%; /* Ocupa el ancho del wrapper */
     box-sizing: border-box;
     border-radius: 0 0 var(--border-radius) var(--border-radius); /* Redondear esquinas inferiores */
-    position: relative; /* Para asegurar visibilidad */
-    z-index: 20; /* Sobre las slides */
-    margin-top: -0.5rem; /* Ligeramente superponer con main */
+    position: relative; /* Asegurar que esté en el flujo */
+    z-index: 20;
+    /* No necesita margen superior negativo si está fuera de main */
 }
 
-.slide-navigation button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem; /* Tamaño botones */
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    display: flex; /* Alinear icono */
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.slide-navigation button i {
-    font-size: 0.9em;
-}
-
-.slide-navigation button:hover {
-    background-color: var(--primary-color);
-    opacity: 0.9;
-}
-
-.slide-navigation button:active {
-    transform: scale(0.95);
-}
-
-.slide-navigation button:disabled {
-    background-color: var(--grey-text-color);
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-#slide-counter {
-    font-weight: 600; /* Más grueso */
-    color: white; /* Texto blanco */
-    font-size: 1rem;
-}
+.slide-navigation button { background-color: var(--primary-color); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: var(--border-radius); cursor: pointer; font-size: 1rem; transition: background-color 0.2s ease, transform 0.1s ease; display: flex; align-items: center; gap: 0.5rem; }
+.slide-navigation button i { font-size: 0.9em; }
+.slide-navigation button:hover { background-color: var(--primary-color); opacity: 0.9; }
+.slide-navigation button:active { transform: scale(0.95); }
+.slide-navigation button:disabled { background-color: var(--grey-text-color); cursor: not-allowed; opacity: 0.6; }
+#slide-counter { font-weight: 600; color: white; font-size: 1rem; }
 
 /* --- Tabla Anexo --- */
 .table-container {
-    max-height: 450px; /* Ajuste altura */
+    max-height: 450px;
     overflow-y: auto;
     margin-top: 1.5rem;
     border: 1px solid var(--border-color);
@@ -354,36 +212,12 @@ main#presentation-container {
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-#orl-code-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+#orl-code-table { width: 100%; border-collapse: collapse; }
+#orl-code-table th, #orl-code-table td { border: 1px solid var(--border-color); padding: 0.7rem 1rem; text-align: left; font-size: 0.9rem; vertical-align: top; }
+#orl-code-table th { background-color: var(--primary-color); color: white; font-weight: 600; position: sticky; top: 0; z-index: 2; }
+#orl-code-table tbody tr:nth-child(even) { background-color: var(--background-color); }
+#orl-code-table tbody tr:hover { background-color: var(--disclaimer-bg); }
 
-#orl-code-table th,
-#orl-code-table td {
-    border: 1px solid var(--border-color);
-    padding: 0.7rem 1rem;
-    text-align: left;
-    font-size: 0.9rem;
-    vertical-align: top;
-}
-
-#orl-code-table th {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 600;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-#orl-code-table tbody tr:nth-child(even) {
-    background-color: var(--background-color); /* Alternar color */
-}
-
-#orl-code-table tbody tr:hover {
-    background-color: var(--disclaimer-bg);
-}
 
 /* --- Footer --- */
 footer {
@@ -391,73 +225,60 @@ footer {
     color: var(--light-text-color);
     text-align: center;
     padding: 1.5rem 1rem;
-    margin-top: auto; /* Empujar al final */
+    margin-top: auto; /* Asegura que esté al final si el contenido es corto */
     font-size: 0.9rem;
+    width: 100%; /* Ocupa todo el ancho */
 }
-
-footer p {
-    margin: 0.3rem 0;
-}
-
-footer a {
-    color: white;
-    text-decoration: underline;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-}
-
-footer a:hover {
-    opacity: 1;
-}
+footer p { margin: 0.3rem 0; }
+footer a { color: white; text-decoration: underline; opacity: 0.8; transition: opacity 0.2s ease; }
+footer a:hover { opacity: 1; }
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px; /* Reducir tamaño base en móvil */
-    }
-    header {
-        padding: 1.5rem 1rem;
-    }
-    h1 {
-        font-size: 1.8rem;
-    }
-    .logo {
-        max-height: 40px;
-    }
-    main#presentation-container {
-        width: 100%;
-        margin: 1rem 0;
-        border-radius: 0;
-        min-height: 70vh; /* Más altura en móvil */
-    }
-    .slide {
-        padding: 1.5rem 1.8rem; /* Menos padding */
-    }
-    .slide h2 {
-        font-size: 1.3rem;
-    }
-    .slide-content {
-        font-size: 0.95rem;
-    }
-    .grid-layout, .comparison-grid, .resource-list, .cases, .future-trends, .grid-layout-condensed, .conclusions {
-        grid-template-columns: 1fr; /* Stack en móvil */
-        gap: 1rem;
-    }
-    .slide-navigation {
-        width: 100%;
-        padding: 0.6rem 1rem;
-        border-radius: 0;
-        margin-top: 0; /* Sin superposición */
-        margin-bottom: 0; /* Pegado abajo */
-    }
-    .slide-navigation button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-    #slide-counter {
-        font-size: 0.9rem;
-    }
-    footer {
-        padding: 1rem;
-    }
-} 
+    body { font-size: 14px; }
+    header { padding: 1.5rem 1rem; }
+    h1 { font-size: 1.8rem; }
+    .logo { max-height: 40px; }
+    .presentation-wrapper { width: 100%; margin: 1rem 0; } /* Ocupar todo el ancho en móvil */
+    main#presentation-container { border-radius: 0; } /* Sin bordes redondeados en main */
+    .slide { padding: 1.5rem 1.8rem; min-height: 300px; /* Ajustar altura mínima móvil */ }
+    .slide h2 { font-size: 1.3rem; }
+    .slide-content { font-size: 0.95rem; }
+    .grid-layout, .comparison-grid, .resource-list, .cases, .future-trends, .grid-layout-condensed, .conclusions { grid-template-columns: 1fr; gap: 1rem; }
+    .slide-navigation { border-radius: 0; } /* Sin bordes redondeados en nav */
+    .slide-navigation button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    #slide-counter { font-size: 0.9rem; }
+    footer { padding: 1rem; }
+}
+
+/* Estilo para enlaces de referencia añadidos */
+.reference-link {
+    font-size: 0.8em;
+    color: var(--grey-text-color);
+    margin-left: 5px;
+    text-decoration: none;
+    vertical-align: super;
+}
+.reference-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Estilo para notas al pie de referencias */
+.references-footnote {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--grey-text-color);
+}
+.references-footnote p {
+    margin-bottom: 0.5rem;
+}
+.references-footnote a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.references-footnote a:hover {
+    text-decoration: underline;
+}
