@@ -19,7 +19,7 @@ const orlData = [
     { code: '1302090-5', description: 'Toma de injerto fascia temporal', modality: 'MAI', area: 'Oído', type: 'Pabellón', value: 'N/A' },
     { code: '1302096-5', description: 'Tumor benigno nasosinusal/rinofaríngeo, resección endoscópica', modality: 'MAI', area: 'Nariz', type: 'Pabellón', value: 'N/A' },
     { code: '1302098-8', description: 'Tumor maligno nasosinusal/rinofaríngeo, tto. quirúrgico endoscópico', modality: 'MAI', area: 'Nariz', type: 'Pabellón', value: 'N/A' },
-    { code: '11302105-6', description: 'Subluxación articulación cricotiroídea', modality: 'MAI', area: 'Laringe', type: 'Pabellón', value: 'N/A' }, // Código parece tener un dígito extra, revisar fuente original si es posible
+    { code: '1302105-6', description: 'Subluxación articulación cricotiroídea', modality: 'MAI', area: 'Laringe', type: 'Pabellón', value: 'N/A' },
     { code: '1302075-8', description: 'Fractura laríngea, reducción abierta c/s microplacas', modality: 'MAI', area: 'Laringe', type: 'Pabellón', value: 'N/A' },
 
     // --- MLE Urgencia (Oído) ---
@@ -30,8 +30,11 @@ const orlData = [
     { code: '1302001-0', description: 'Absceso/Hematoma oído externo Tto. Quir.', modality: 'MLE', area: 'Oído', type: 'Urgencia', value: 'Guarismo 0 (Valor bajo)' },
 
     // --- MLE Urgencia (Nariz) ---
-    { code: 'N/A', description: 'Taponamiento anterior epistaxis', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $7.680' }, // Código exacto no especificado, usar descripción
-    { code: 'N/A', description: 'Taponamiento posterior epistaxis', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $22.370' }, // Código exacto no especificado, usar descripción
+    { code: '1301025-2', description: 'Taponamiento anterior epistaxis', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $7.680' },
+    { code: '1302026-2', description: 'Taponamiento posterior epistaxis', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $22.370' },
+    { code: '1301028', description: 'Cauterización uni o bilateral', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $22.370' },
+    { code: '1301029-2', description: 'Cuerpos extraños nasales adulto', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: 'Consultar Arancel' },
+    { code: '1301030-2', description: 'Cuerpos extraños nasales niño', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: 'Consultar Arancel' },
     { code: '1302046', description: 'Reducción fractura nasal', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $50.480' },
     { code: '1302038', description: 'Absceso/Hematoma tabique nasal Tto. Quir.', modality: 'MLE', area: 'Nariz', type: 'Urgencia', value: '~ $54.620' },
 
@@ -57,8 +60,11 @@ const orlData = [
     { code: '1502012', description: '(Plástica) Injerto cartílago/hueso (Rinoplastia)', modality: 'MLE', area: 'Nariz', type: 'Pabellón', value: 'Consultar Arancel' },
     // Códigos PPC Rinoplastia (Ej. Indisa) - Referenciales, verificar políticas
     { code: '5302000', description: '(PPC) Código Base Estético Rinoplastia', modality: 'PPC/Estético', area: 'Nariz', type: 'Pabellón', value: 'Variable' },
-    { code: 'C1/C2', description: '(PPC) Modificador Complejidad Rinoplastia', modality: 'PPC/Estético', area: 'Nariz', type: 'Pabellón', value: 'Variable' },
-    { code: '1350052-(2,4,6)', description: '(PPC) Tiempo Pabellón Particular/Fonasa s/Seguro', modality: 'PPC/Estético', area: 'N/A', type: 'Pabellón', value: 'Variable' },
+    { code: 'C1', description: '(PPC) Rellenos, reoperaciones menores, etc.', modality: 'PPC/Estético', area: 'Nariz', type: 'Pabellón', value: 'Variable' },
+    { code: 'C2', description: '(PPC) Dificultad mayor, reconstrucción compleja, etc.', modality: 'PPC/Estético', area: 'Nariz', type: 'Pabellón', value: 'Variable' },
+    { code: '1350052-2', description: '(PPC) Tiempo Pabellón - hasta 2 horas', modality: 'PPC/Estético', area: 'Pabellón', type: 'Tiempo', value: 'Variable' },
+    { code: '1350052-4', description: '(PPC) Tiempo Pabellón - hasta 4 horas', modality: 'PPC/Estético', area: 'Pabellón', type: 'Tiempo', value: 'Variable' },
+    { code: '1350052-6', description: '(PPC) Tiempo Pabellón - hasta 6 horas', modality: 'PPC/Estético', area: 'Pabellón', type: 'Tiempo', value: 'Variable' },
 
     // --- MLE Pabellón (Oído) ---
     { code: '1301041', description: 'Dilatación trompa Eustaquio', modality: 'MLE', area: 'Oído', type: 'Pabellón', value: 'Guarismo 0' },
@@ -72,13 +78,25 @@ const orlData = [
 
     // --- MLE Pabellón (Cav. Oral / Faringe / Laringe) ---
     { code: '1602201', description: '(Derma) Biopsia benigna mucosa (Tronco/Ext)', modality: 'MLE', area: 'Piel', type: 'Pabellón', value: 'Consultar Arancel' },
-    { code: '1602202', description: '(Derma) Biopsia benigna mucosa (Cabeza/Cuello <3)', modality: 'MLE', area: 'Piel', type: 'Pabellón', value: 'Consultar Arancel' },
+    { code: '1602202-2', description: '(Derma) Biopsia mucosa benigna (Cabeza/Cuello <3)', modality: 'MLE', area: 'Piel', type: 'Pabellón', value: '~ $131.680' },
+    { code: '1602204-2', description: '(Derma) Biopsia mucosa benigna (Cabeza/Cuello 4-6)', modality: 'MLE', area: 'Piel', type: 'Pabellón', value: '~ $263.420' },
     { code: '1301007', description: 'Laringoscopia/Traqueoscopia directa s/micro (Cambio TQT?)', modality: 'MLE', area: 'Laringe', type: 'Pabellón', value: '~ $29.890' },
     { code: '1301013', description: 'Fibro LTB (Cambio TQT?)', modality: 'MLE', area: 'Laringe', type: 'Pabellón', value: '~ $74.540' },
+    { code: '1302033-6', description: 'Extirpación de tumor benigno de la base de la lengua', modality: 'MLE', area: 'Cav. Oral', type: 'Pabellón', value: '~ $186.792' },
+    { code: '1402022-2', description: 'Extirpación de quiste o mucocele de glándula salival menor de labios', modality: 'MLE', area: 'Cav. Oral', type: 'Pabellón', value: '~ $89.220' },
+    { code: '1402042-6', description: 'Glosectomía parcial, reparación primaria', modality: 'MLE', area: 'Cav. Oral', type: 'Pabellón', value: '~ $191.408' },
+    { code: '1602223-2', description: '(Derma) Extirpación lesión benigna subepidérmica cabeza/cuello', modality: 'MLE', area: 'Piel', type: 'Pabellón', value: '~ $131.696' },
 
     // --- MLE Pabellón (Cuello / Misceláneo) ---
     { code: '1402019', description: '(Maxilofacial) Absceso submandibular/sublingual Tto. Quir.', modality: 'MLE', area: 'Cuello', type: 'Pabellón', value: 'Consultar Arancel' },
     { code: '1402024', description: 'Tto. Quir. Quiste Tirogloso/Branquial/Higroma/T.Benigno', modality: 'MLE', area: 'Cuello', type: 'Pabellón', value: 'Consultar Arancel' },
+    
+    // --- Procedimientos Específicos ---
+    { code: '0404016', description: 'Ecografía Partes Blandas (Sialorrea)', modality: 'MLE', area: 'Diagnóstico', type: 'Ambulatorio', value: '~ $30.210' },
+    { code: '1601119-2', description: 'Inyección intracutánea en áreas hasta 9 cm2 por sesión (Sialorrea)', modality: 'MLE', area: 'Piel', type: 'Ambulatorio', value: '~ $30.430' },
+    
+    // --- Procedimientos Obsoletos ---
+    { code: 'N/A', description: 'Vaciamiento cavid. perinasales (Proetz y sim.) (10 sesiones)', modality: 'MLE', area: 'Nariz', type: 'Ambulatorio', value: '~ $41.970' },
     
     // --- Anestesia ---
     { code: '22-01-001', description: 'Anestesia para proc. diag./terapéuticos (local)', modality: 'MLE', area: 'N/A', type: 'Anestesia', value: '~ $61.550' }

@@ -122,6 +122,15 @@
                         </ul>
                     </div>
                 </div>
+                <div class="concept-section">
+                    <h3><i class="fas fa-info-circle"></i> Conceptos Avanzados</h3>
+                    <ul>
+                        <li><strong>Arancel:</strong> Conjunto de prestaciones definidas con cobertura financiera respaldada por normativa vigente.</li>
+                        <li><strong>Guarismo:</strong> Número adicional (G) que indica complejidad creciente de intervenciones realizadas en pabellón (<code>XXXXXXX-G</code>). Mayor guarismo = Mayor complejidad/valor.</li>
+                        <li><strong>Nivel de atención:</strong> Determina copago del paciente en MLE (Niveles 1, 2, 3). Base para cálculos de Isapres (ej: nivel x factor 2.5, x3, etc.).</li>
+                        <li><strong>Valores referenciales:</strong> Disponibles en portal web Clínica INDISA para cada Isapre anualmente.</li>
+                    </ul>
+                </div>
                 <p class="footnote">Nota: La brecha de códigos y valorización entre MAI y MLE es un desafío actual.</p>
             </section>
 
@@ -185,8 +194,9 @@
                      <ul>
                         <li>Documentación exhaustiva es clave para justificar códigos y eventuales guarismos mayores.</li>
                         <li>Verificar NTA para reglas de empaquetamiento (qué está incluido/excluido).</li>
-                        <li>Principio Endoscopía (Norma histórica, aplicar con cautela y verificar vigencia): "Ausencia de código endoscópico explícito: usar código convencional + 2 dígitos en guarismo".</li>
+                        <li>Principio Endoscopía (Norma histórica, aplicar con cautela y verificar vigencia): "<strong>En ausencia de códigos para técnicas endoscópicas, se aplicarán los correspondientes a las técnicas convencionales. Para el código adicional se aplicará el de la intervención convencional, aumentado en dos dígitos en el guarismo</strong>".</li>
                         <li>Considerar códigos de otras especialidades si describen mejor el procedimiento global (Ej. Maxilofacial para fracturas complejas, Plástica para reconstrucciones).</li>
+                        <li>En procedimientos diagnósticos, terapéuticos o quirúrgicos sin anestesia especificada, puede utilizarse <code>22-01-001</code> (Anestesia local, ~$61.550), justificando en ficha y programa.</li>
                      </ul>
 
                      <div class="grid-layout-condensed">
@@ -240,6 +250,81 @@
                         </div>
                      </div>
                      <p class="footnote">Códigos y valores referenciales. Siempre consultar Arancel MLE/MAI y NTA vigentes.</p>
+                </div>
+            </section>
+
+            <section id="slide-biopsias" class="slide">
+                <h2><i class="fas fa-microscope"></i> 5B. Codificación de Biopsias y Lesiones Especiales</h2>
+                <div class="slide-content">
+                    <div class="grid-layout-condensed">
+                        <div>
+                            <h3><i class="fas fa-clipboard-list"></i> Opciones para Biopsias</h3>
+                            <ul class="code-list">
+                                <li><code>1602202-2</code> (Derma) Cabeza, cuello, genitales hasta 3 lesiones: extirpación, reparación o biopsia de lesiones benignas cutáneas por excisión (~$131.680)</li>
+                                <li><code>1602204-2</code> (Derma) Cabeza, cuello y genitales desde 4 y hasta 6 lesiones: extirpación, reparación o biopsia de lesiones benignas cutáneas por excisión (~$263.420)</li>
+                                <li><code>1502014-4</code> (Plástica) Plastia en Z, hasta 3 (~$191.408)</li>
+                                <li><code>1302033-6</code> Extirpación de tumor benigno de la base de la lengua (~$186.792)</li>
+                                <li><code>1402022-2</code> Extirpación de quiste o mucocele de glándula salival menor de labios (~$89.220)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3><i class="fas fa-exclamation-triangle"></i> Lesiones Complejas</h3>
+                            <ul class="code-list">
+                                <li><code>1402042-6</code> Glosectomía parcial, reparación primaria (~$191.408) - Para lesiones linguales grandes/ulceradas/profundas o sospechosas</li>
+                                <li><code>1602223-2</code> (Derma) Cabeza, cuello, genitales: extirpación de lesión benigna subepidérmica, incluye tumor sólido, quiste epidérmico y lipoma por lesión (~$131.696)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3><i class="fas fa-procedures"></i> Procedimientos Varios</h3>
+                            <ul class="code-list">
+                                <li><strong>Manejo de Sialorrea:</strong></li>
+                                <li><code>0404016</code> Ecografía Partes Blandas o Musculoesquelética (cada zona anatómica) (~$30.210)</li>
+                                <li><code>1601119-2</code> Inyección intracutánea en áreas hasta 9 cm2 por sesión (~$30.430)</li>
+                                <li><em>Ideal: Código interno específico para esta indicación</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="special-note">
+                        <p><i class="fas fa-info-circle"></i> <strong>Nota importante:</strong> Para cualquier procedimiento sin código específico o aún no adoptado en MLE, considerar la creación de códigos internos institucionales, previa autorización y consenso con áreas administrativas correspondientes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-ppc" class="slide">
+                <h2><i class="fas fa-money-bill-wave"></i> 5C. PPC INDISA (Procedimientos Particulares)</h2>
+                <div class="slide-content">
+                    <div class="ppc-section">
+                        <h3><i class="fas fa-nose"></i> Rinoplastia</h3>
+                        <ul>
+                            <li>Se codifica combinando procedimientos MLE más código estético:</li>
+                            <li><code>1302052</code> (Septoplastia) + <code>1302042</code> (Turbinectomía) + <code>1502012</code> (Injerto costal/cartílago)</li>
+                            <li><strong>Más código estético:</strong> <code>5302000</code> (Base estético Rinoplastia)</li>
+                            <li><strong>Modificadores de complejidad:</strong>
+                                <ul>
+                                    <li><code>C1</code>: Rellenos, reoperaciones menores, etc.</li>
+                                    <li><code>C2</code>: Dificultad mayor, reconstrucción compleja, etc.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Tiempo de pabellón (para FONASA sin seguro o particular):</strong></li>
+                            <li><code>1350052-2</code> hasta 2 horas</li>
+                            <li><code>1350052-4</code> hasta 4 horas</li>
+                            <li><code>1350052-6</code> hasta 6 horas</li>
+                        </ul>
+                    </div>
+                    <div class="ppc-section">
+                        <h3><i class="fas fa-hospital-user"></i> Otros Procedimientos Particulares</h3>
+                        <p>Para procedimientos no codificados adecuadamente en MLE, se recomienda:</p>
+                        <ul>
+                            <li>Revisión de presupuestos con área administrativa</li>
+                            <li>Establecer códigos internos institucionales para procedimientos frecuentes</li>
+                            <li>Unificar criterios de códigos PPC entre especialistas</li>
+                            <li>Documentar adecuadamente la complejidad para justificar valorización</li>
+                        </ul>
+                    </div>
+                    <div class="ppc-section">
+                        <h3><i class="fas fa-lightbulb"></i> Información Complementaria</h3>
+                        <p>Los valores específicos para cada Isapre se pueden revisar año a año en el portal web de INDISA. Se recomienda gestionar acceso directo a esta información para facilitar su consulta desde los equipos clínicos.</p>
+                    </div>
                 </div>
             </section>
 
@@ -391,6 +476,16 @@
                         </ul>
                      </div>
                  </div>
+                 <div class="final-recommendations">
+                    <h3><i class="fas fa-clipboard-check"></i> Recomendaciones para Clínica INDISA</h3>
+                    <ul>
+                        <li>Revisión periódica de códigos, valorizaciones y procedimientos de cobro, especialmente a nivel ambulatorio y urgencias.</li>
+                        <li>Mejorar acceso a información sobre valores de HMQ en portal INDISA (disponibles en escritorio de equipos clínicos).</li>
+                        <li>Desarrollar protocolos específicos para códigos internos en procedimientos sin cobertura MLE adecuada.</li>
+                        <li>Eliminación o actualización de procedimientos obsoletos, como "Vaciamiento cavid. perinasales (Proetz y sim.)" (10 sesiones, ~$41.970).</li>
+                        <li>Valorización y reconocimiento adecuado de la complejidad de la especialidad ORL.</li>
+                    </ul>
+                </div>
             </section>
             
             <section id="slide-11" class="slide">
@@ -467,6 +562,27 @@
     </footer>
 
     <script src="js/orl_data.js"></script>
+    <script>
+    // Actualizar contador de slides una vez que se han añadido las nuevas secciones
+    document.addEventListener('DOMContentLoaded', function() {
+        // Recalcular número total de slides
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        // Actualizar el texto del contador
+        const updateSlideCounter = function(current) {
+            document.getElementById('slide-counter').textContent = current + ' / ' + totalSlides;
+        };
+        
+        // Asegurar que el script principal use esta función
+        window.updateSlideCounterFunction = updateSlideCounter;
+        
+        // Inicializar con el slide actual
+        const currentSlide = document.querySelector('.slide.active');
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const currentIndex = slides.indexOf(currentSlide) + 1;
+        updateSlideCounter(currentIndex);
+    });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html> 
